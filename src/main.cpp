@@ -12,6 +12,17 @@ enum Mode{
 
 bool mode = SYNC;
 
+void listenButtons(){
+  if (digitalRead(BOARD_BUTTON) == true && digitalRead(OUTER_BUTTON) == false)
+  {
+    mode = SYNC;
+  }else if (digitalRead(BOARD_BUTTON) == false && digitalRead(OUTER_BUTTON) == true)
+  {
+    mode = ASYNC;
+  }
+  
+}
+
 void setup() {
   pinMode(LED_RED, OUTPUT);
   pinMode(LED_BLUE, OUTPUT);
@@ -21,8 +32,7 @@ void setup() {
 
 void loop() {
 
-
-
+  listenButtons();
 
   if(mode == SYNC){
     digitalWrite(LED_RED, HIGH);
