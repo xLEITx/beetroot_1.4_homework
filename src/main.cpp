@@ -10,7 +10,7 @@ enum Mode{
   ASYNC
 };
 
-int mode = SYNC;
+bool mode = SYNC;
 
 void setup() {
   pinMode(LED_RED, OUTPUT);
@@ -20,6 +20,9 @@ void setup() {
 }
 
 void loop() {
+
+
+
 
   if(mode == SYNC){
     digitalWrite(LED_RED, HIGH);
